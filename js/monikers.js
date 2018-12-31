@@ -101,8 +101,8 @@ function Game(deck, numRounds, team1Name, team2Name) {
 			return "It's a tie!"
 	}
 	this.getCardValue = function(card) {
-        // pixel = getPixel(cardToImg(card), 0, 0)
-        // alert(pixel)
+        pixel = getPixel(cardToImg(card), 0, 0)
+        alert(pixel)
 		return 1;
 	}
 	//Whenever a card is passed, it is added to the passed pile
