@@ -101,7 +101,7 @@ function Game(deck, numRounds, team1Name, team2Name) {
 			return "It's a tie!"
 	}
 	this.getCardValue = function(card) {
-        pixel = getPixel(cardToImg(card), 0, 0)
+        pixel = getPixelRatioXY(cardToImg(card), 0.5, 1)
         alert(pixel)
 		return 1;
 	}
@@ -232,12 +232,13 @@ function Game(deck, numRounds, team1Name, team2Name) {
 	}
 }
 
-function getPixel(url, x, y) {
+function getPixelRatioXY(url, x, y) {
     var img = new Image();
     img.src = url;
     img.setAttribute('crossOrigin', '')
     var canvas = document.createElement('canvas');
     var context = canvas.getContext('2d');
     context.drawImage(img, 0, 0);
-    return context.getImageData(x, y, 1, 1).data;
+    alert("reading image at: " + Math.trunc(x * img.width) + " " +  Math.trunc(y * img.width))
+    return context.getImageData(Math.trunc(x * img.width), Math.trunc(y * img.width), 1, 1).data;
 }
