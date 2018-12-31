@@ -1,1 +1,77 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<title>Monikers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no, minimal-ui">
+<link rel="icon" href="res/favicon.ico">
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/jquery.countdown360.min.js"></script>
+<script src="js/monikers.js"></script>
+<script src="js/display.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91620866-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<body>
+
+<div id="container">
+	<div id="navbar">
+		Monikers
+		<ul class="navitem">
+			<a target="_blank" href="http://monikers.yannickweiss.com/rules.pdf"><li>Rules</li></a>
+			<li onclick="pause()">Pause</li>
+		</ul>
+	</div>
+	<div id="cardContainer" hidden></div>
+
+	<div id="teamSelection" class="cardContainer" hidden>
+        <h1>Team Selection</h1>
+        <div>
+            <p class="numCards">Team 1 Name: </p>
+            <input class="numCards" type="text" id="team1Input"/>
+        </div>
+        <div>
+            <p class="numCards">Team 2 Name: </p>
+            <input class="numCards" type="text" id="team2Input"/>
+        </div>
+        <button type="button" onClick="teamSelectionButtonClicked()" id="startButton" class="startButton"><p>Start Game</p></button>
+    </div>
+
+
+    <div id="mainPage" hidden>
+        <h1>Welcome to Monikers!</h1>
+        <div>
+            <p class="numCards">How many players?</p>
+            <input class="numCards" type="number" id="numPlayersInput"/>
+        </div>
+        <div>
+            <p class="numCards">Cards per person?</p>
+            <input class="numCards" type="number" id="cardsPerPlayer"/>
+        </div>
+        <button type="button" onClick="cardSelectionPhaseButtonClicked()" id="startButton" class="startButton"><p>Pick Cards</p></button>
+    </div>
+
+    <div id="cardPicker" hidden>
+        <h1>Pick this card?</h1>
+        <h3 id="cardsLeftHeader">Template -- Remove Me</h3>
+        <img class="cardPickerButton" src="https://cdn.pixabay.com/photo/2016/03/31/14/37/check-mark-1292787_960_720.png" onclick="cardPickerYes()"/>
+        <img id="card"/>
+        <img class="cardPickerButton" id="noButton" src="https://vignette.wikia.nocookie.net/house-of-cards/images/a/a5/X.png/revision/latest/scale-to-width-down/480?cb=20161128021903
+" onclick="cardPickerNo()"/>
+    </div>
+
+
+	<div id="buttonContainer" >
+		<img id="undoButton" src="res/undo.png" onclick="undo()"></img>
+		<div id="correctButton" onclick="correct()"><p>Got it!</p></div>
+		<div id="passButton" onclick="pass()"><p>Pass!</p></div>
+	</div>
+</div>
+
+</body>
+</html>
