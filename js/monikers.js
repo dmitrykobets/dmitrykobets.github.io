@@ -232,13 +232,12 @@ function Game(deck, numRounds, team1Name, team2Name) {
 	}
 }
 
-function getPixelRatioXY(url, x, y) {
+function getPixelRatioXY(url, xRat, yRat) {
     var img = new Image();
     img.src = url;
     img.setAttribute('crossOrigin', '')
-    var canvas = document.createElement('canvas');
+    var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
     context.drawImage(img, 0, 0);
-    alert("reading image at: " + Math.trunc(x * img.width) + " " +  Math.trunc(y * img.height))
-    return context.getImageData(Math.trunc(x * img.width), Math.trunc(y * img.height), 1, 1).data;
+    return context.getImageData(Math.trunc(xRat * (img.width-1)), Math.trunc(yRat * (img.height-1)), 1, 1).data;
 }
