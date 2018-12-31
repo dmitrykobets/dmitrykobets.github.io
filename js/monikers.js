@@ -1,4 +1,4 @@
-var TOTAL_CARD_NUM = 483;
+var TOTAL_CARD_NUM = 230;
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
