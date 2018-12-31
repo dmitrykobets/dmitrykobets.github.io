@@ -1,4 +1,5 @@
 var TOTAL_CARD_NUM = 230;
+var imageIdxToPointsList = [3, 3, 2, 4, 2, 1, 1, 2, 1, 2, 2, 3, 2, 1, 3, 1, 1, 2, 1, 3, 1, 3, 2, 2, 2, 4, 2, 2, 1, 1, 3, 1, 3, 3, 1, 3, 2, 1, 2, 4, 2, 3, 2, 2, 2, 2, 1, 2, 4, 4, 3, 4, 4, 2, 3, 4, 2, 2, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 3, 2, 3, 2, 2, 1, 4, 3, 3, 3, 2, 2, 3, 3, 4, 2, 3, 3, 3, 3, 2, 3, 2, 3, 4, 2, 2, 2, 3, 3, 3, 2, 3, 2, 2, 2, 4, 1, 2, 2, 3, 2, 3, 3, 2, 4, 3, 2, 3, 3, 3, 3, 1, 4, 3, 3, 3, 3, 2, 2, 4, 3, 4, 2, 3, 3, 3, 1, 1, 3, 1, 2, 4, 2, 2, 3, 3, 2, 2, 3, 2, 4, 3, 2, 3, 3, 2, 3, 2, 4, 3, 3, 2, 2, 1, 2, 2, 4, 3, 2, 2, 3, 3, 2, 2, 2, 2, 2, 1, 3, 1, 2, 2, 1, 4, 4, 1, 3, 1, 4, 1, 1, 1, 2, 1, 2, 4, 3, 2, 3, 1, 2, 1, 1, 3, 1, 3, 1, 1, 3, 2, 1, 1, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 2, 3]
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -107,12 +108,7 @@ function Game(deck, numRounds, team1Name, team2Name) {
 			return "It's a tie!"
 	}
 	this.getCardValue = function(card) {
-        var color = getPixelRatioXY(cardToImg(card), 0.5, 1)
-        if (!(color[0] in this.redToPointsMap)) {
-            alert("ERROR: unable to find color: " + color[0] + " " + color[1] + " " + color[2])
-        } else {
-            return this.redToPointsMap[color[0]]
-        }
+        return imageIdxToPointsList[card-1]
 	}
 	//Whenever a card is passed, it is added to the passed pile
 	this.pass = function() {
@@ -238,14 +234,4 @@ function Game(deck, numRounds, team1Name, team2Name) {
 		localStorage.removeItem("cardsJustGotten");
 		localStorage.removeItem("currentPhase");
 	}
-}
-
-function getPixelRatioXY(url, xRat, yRat) {
-    var img = new Image();
-    img.src = url;
-    img.setAttribute('crossOrigin', '')
-    var canvas = document.getElementById('canvas');
-    var context = canvas.getContext('2d');
-    context.drawImage(img, 0, 0);
-    return context.getImageData(Math.trunc(xRat * (img.width-1)), Math.trunc(yRat * (img.height-1)), 1, 1).data;
 }
