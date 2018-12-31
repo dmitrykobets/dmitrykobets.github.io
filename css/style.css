@@ -116,11 +116,11 @@ body {
 }
 
 #correctButton {
-	width: 50%;
-	height: 40%;
-	position: absolute;
+	width: 15%;
+	height: 20%;
+	position: fixed;
 	left: 0;
-	bottom: 0;
+    top: 40%;
 	background: green;
 	text-align: center;
 	background: -webkit-linear-gradient(#29a329, #2eb82e); /* For Safari 5.1 to 6.0 */
@@ -130,11 +130,11 @@ body {
 }
 
 #passButton {
-	width: 50%;
-	height: 40%;
-	position: absolute;
-	right: 0;
-	bottom: 0;
+	width: 15%;
+	height: 20%;
+	position: fixed;
+	right: 0%;
+    top: 40%;
 	background: red;
 	text-align: center;
 	background: -webkit-linear-gradient(#cc0000, #ff1a1a); /* For Safari 5.1 to 6.0 */
