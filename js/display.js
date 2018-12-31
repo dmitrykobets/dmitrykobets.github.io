@@ -212,9 +212,7 @@ function roundOver(restoring = false) {
 	$("#buttonContainer").hide();
 	timeWhenTurnEnded = new Date().getTime();
 	if(!restoring) {
-        alert("roudn over")
 		game.endTurn();
-        alert("done game endturn")
 		timer.stop();
 	}
 	if(!restoring && game.currentRound == 3) {

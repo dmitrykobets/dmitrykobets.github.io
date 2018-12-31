@@ -107,6 +107,7 @@ function Game(deck, numRounds, team1Name, team2Name) {
 			return "It's a tie!"
 	}
 	this.getCardValue = function(card) {
+        alert("updated")
         return this.redToPointsMap[getPixelRatioXY(cardToImg(card), 0.5, 1)[0]]
 	}
 	//Whenever a card is passed, it is added to the passed pile
@@ -179,7 +180,6 @@ function Game(deck, numRounds, team1Name, team2Name) {
 	//Point totals are calculated at the end of the round
 	//The deck is restored by combining the blue and red piles
 	this.nextRound = function() {
-        alert('NEXT ROUND')
 		this.currentRound += 1
 		for(var i = 0; i < this.redPile.length; i++)
 			this.redPoints += this.getCardValue(this.redPile[i])
