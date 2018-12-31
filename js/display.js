@@ -115,7 +115,7 @@ function handleCardPickPostAction() {
             cardPicker.setupNextPlayer()
             $("#card").css('filter', '')
             updateCardPickerScreen()
-        }, 0)
+        }, 300)
     } else {
         updateCardPickerScreen()
     }
