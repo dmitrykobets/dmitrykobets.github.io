@@ -55,6 +55,12 @@ function getRandomCard() {
 }
 
 function Game(deck, numRounds, team1Name, team2Name) {
+    this.redToPointsMap = {
+        "86": 1,
+        "42": 2,
+        "133": 3,
+        "239": 4
+    },
 	this.deck = deck
 	this.bluePile = []
 	this.redPile = []
@@ -101,9 +107,7 @@ function Game(deck, numRounds, team1Name, team2Name) {
 			return "It's a tie!"
 	}
 	this.getCardValue = function(card) {
-        pixel = getPixelRatioXY(cardToImg(card), 0.5, 1)
-        alert(pixel)
-		return 1;
+        return this.redToPointsMap[getPixelRatioXY(cardToImg(card), 0.5, 1)[0]]
 	}
 	//Whenever a card is passed, it is added to the passed pile
 	this.pass = function() {
