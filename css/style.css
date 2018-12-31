@@ -90,7 +90,6 @@ body {
 
 .cardPickerButton {
     width: 10%;
-    margin: 10%;
     cursor: pointer;
     display: inline-block;
 }
