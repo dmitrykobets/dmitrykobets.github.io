@@ -107,8 +107,12 @@ function Game(deck, numRounds, team1Name, team2Name) {
 			return "It's a tie!"
 	}
 	this.getCardValue = function(card) {
-        alert("updated")
-        return this.redToPointsMap[getPixelRatioXY(cardToImg(card), 0.5, 1)[0]]
+        var color = getPixelRatioXY(cardToImg(card), 0.5, 1)
+        if (!(color[0] in this.redToPointsMap)) {
+            alert("ERROR: unable to find color: " + color[0] + " " + color[1] + " " + color[2])
+        } else {
+            return this.redToPointsMap[color[0]]
+        }
 	}
 	//Whenever a card is passed, it is added to the passed pile
 	this.pass = function() {
