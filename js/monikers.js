@@ -239,6 +239,6 @@ function getPixelRatioXY(url, x, y) {
     var canvas = document.createElement('canvas');
     var context = canvas.getContext('2d');
     context.drawImage(img, 0, 0);
-    alert("reading image at: " + Math.trunc(x * img.width) + " " +  Math.trunc(y * img.width))
-    return context.getImageData(Math.trunc(x * img.width), Math.trunc(y * img.width), 1, 1).data;
+    alert("reading image at: " + Math.trunc(x * img.width) + " " +  Math.trunc(y * img.height))
+    return context.getImageData(Math.trunc(x * img.width), Math.trunc(y * img.height), 1, 1).data;
 }
